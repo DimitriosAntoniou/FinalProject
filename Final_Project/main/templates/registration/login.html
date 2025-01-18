@@ -1,6 +1,6 @@
 {% extends 'main/base.html' %} {% block title %}Login{% endblock %} 
 {% load crispy_forms_tags %} {% block content %}
-<h1>Mitsos Blog</h1>
+<h1>Blog</h1>
 <form method="post">
   {% csrf_token %}{{form|crispy}}
   <p>Don't have an account? Create one <a href="/sign-up">Here</a>!</p>
