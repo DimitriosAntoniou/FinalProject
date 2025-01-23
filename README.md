@@ -1,45 +1,26 @@
-# Python: Authentication with Django and user capabilities EXAMPLE Project
+This is a blog website,developed with Django,using Postgres database and Docker.
 
-## A simply functional EXAMPLE project written in Python showing how to setup authentication for a Django website.
+In the website,users are able to view,add,delete posts.The 'mod' users can also ban other users.
 
- In this project i'll show you how to create new users, have them sign in and sign out! Also talk to you about permissions and groups and how to assign specific permissions to users and restrict parts of the website to those users
+Steps to run the project:
+--  Install docker
+--  Clone the code
+--  cd into Final_Project folder
+--  docker-compose up -d
 
- *Create a custom web server with Python using HHTPRouter
- *Containerize and push a Docker container
- *
+Now the project should be up and running at localhost:8000
 
-### Install Docker
+You have to create a superuser,follow the steps to do it:
+--  Open a terminal
+--  docker ps(a list of the running containers should be appeared) 
+--  copy either the container ID or the name of the django container(must be the one with the final_project-web image that is running on 8000 port)
+--  docker exec -it <container ID or name> bash(to get access in the container that the application running)
+--  python manage.py createsuperuser
 
-1.Ιnstall Docker
-On Windows and macOS
-Download Docker Desktop:
+Final steps:
+--  Login to django admin(localhost:8000/admin with the superuser)
+--  Click on groups(one group should be available 'default')
+--  In group 'default' give the following permissions(can add post,can view post)
+--  Create a new group with the name 'mod' and give all permissions
 
-Visit the official Docker website and download Docker Desktop for your operating system.
-Install Docker Desktop:
-
-Follow the installation instructions provided.
-Start Docker Desktop:
-
-Once installed, open Docker Desktop.
-
-2.Verify Installation
-Open a terminal (Command Prompt or PowerShell) and run the following command to check if Docker is installed correctly: docker --version
-
-Run the followin command: docker run final_project
-
-#### Ιnstallation notes 
-
-pip install django
-pip install crispy-forms
-pip install django-crispy-forms
-pip install crispy-bootstrap5
-docker-compose up -d --build
-cat .\docker-compose.yml
-python manage.py runserver
-
-##### How to install this Python project
-
-The easiest way to see how this works is to dowload it from https://github.com/DimitriosAntoniou/FinalProject and run it
-
-###### Find a bug?
-If you found an issue or would like to submit an improvement to this project, please submit an issue using the issues tab above. If you would like to submit a PR with a fix, reference the issue you created!
+Now the project should be fully functional. Enjoy!
