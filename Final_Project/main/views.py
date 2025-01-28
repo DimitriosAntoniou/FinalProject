@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User, Group
 from .models import Post
+from django.shortcuts import render
 
 
 @login_required(login_url="/login")
@@ -63,3 +64,6 @@ def sign_up(request):
         form = RegisterForm()
 
     return render(request, 'registration/sign_up.html', {"form": form})
+
+def about(request):
+        return render(request, 'main/about.html')
